@@ -78,6 +78,7 @@ class control_cliente (threading.Thread):
 		self.name = name
 	def run(self):
 		self.server.broadcast("Se ha conectado", self.name)
+		self.server.date_display("Se ha establecido la conexión con %s", % str(self.socket.getpeername()))
 		while True:
 			try:
 				mensaje = self.socket.recv(200)
